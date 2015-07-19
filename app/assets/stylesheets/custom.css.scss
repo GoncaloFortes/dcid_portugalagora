@@ -55,7 +55,7 @@ textarea {
 
 /* === header === */
 
-#logo {
+#logo, #logo-pa {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
@@ -78,6 +78,8 @@ textarea {
 @media(min-width: 768px) {
   .logo {
     max-width: 350px;
+    max-height: 235px;
+    margin-right: 30px;
   }
 }
 

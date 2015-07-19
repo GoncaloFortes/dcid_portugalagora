@@ -1,4 +1,4 @@
-DCID
+Portgual Agora powered by DCID
 ====
 
 *propose . discuss . decide*
