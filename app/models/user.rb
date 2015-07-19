@@ -5,10 +5,8 @@ class User < ActiveRecord::Base
   acts_as_voter  # thumbs_up gem
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_CITIZEN_NUMBER_REGEX = /[1-9]\d{6,}/  #TODO what is the portuguese regex for BI/CC number?
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
-  validates :citizen_number, presence: true, format: { with: VALID_CITIZEN_NUMBER_REGEX }, uniqueness: true
   validates :password, length: { minimum: 6 }, if: :password_required?
 
   before_save { self.email = email.downcase; self.political_party = political_party.delete(' ').upcase }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827163755) do
+ActiveRecord::Schema.define(version: 20150719085624) do
 
   create_table "impressions", force: true do |t|
     t.string   "impressionable_type"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20140827163755) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "citizen_number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
@@ -83,7 +82,6 @@ ActiveRecord::Schema.define(version: 20140827163755) do
     t.datetime "password_reset_sent_at"
   end
 
-  add_index "users", ["citizen_number"], name: "index_users_on_citizen_number", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "votes", force: true do |t|
