@@ -20,6 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
+  login:
+    form:
+      title: "Entrar"
+      password: "Palavra-chave"
+      submit: "Entrar"
+  devise:
+    links:
+      login: "Entrar"
+      signup: "Não tem um perfil?"
+      forgot_pass: "Esqueceu-se da sua palavra-passe?"
+      didnt_receive_confirmation: "Não recebeu as instruções de confirmação?"
+      didnt_receive_unlock: "Não recebeu as instruções de desbloqueio de conta?"
+      signin_with_provider: "Entrar com %{provider}"
   activerecord:
     attributes:
       user:
@@ -39,8 +52,12 @@ pt:
             email:
               blank: "tem de estar preenchido"
               invalid: "tem um formato inválido"
+              taken: "já está registado"
             password:
               too_short: "é muito curta (minimo %{count} caracteres)"
+              blank: "tem de ser preenchida"
+            password_confirmation:
+              blank: "tem de ser preenchida"
         proposal:
           attributes:
             title:
@@ -56,4 +73,3 @@ pt:
           attributes:
             voteable_id:
               taken: "já votou uma vez"
-

@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
-  before_action :signed_in_user,        only: [:new, :create, :show, :vote_for, :vote_against]
   before_action :admin_or_author_user,  only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :show, :vote_for, :vote_against]
 
   impressionist :unique => [:session_hash], :actions => [:show]
 
@@ -86,13 +86,13 @@ class ProposalsController < ApplicationController
       when 'voted'
         Proposal.all.sort { |p1, p2| p2.total_votes <=> p1.total_votes }
       when 'popular'
-        Proposal.all.sort { |p1, p2| p2.impressionist_count(start_date: Date.today, end_date: Date.today.prev_month) <=> 
+        Proposal.all.sort { |p1, p2| p2.impressionist_count(start_date: Date.today, end_date: Date.today.prev_month) <=>
           p1.impressionist_count(start_date: Date.today, end_date: Date.today.prev_month) }
       when 'polemic'
         Proposal.all
-          .select { |proposal| 
-            proposal.total_votes > CONTROVERSIAL_THRESHOLD && 
-            proposal.score <= 0.1*CONTROVERSIAL_THRESHOLD && 
+          .select { |proposal|
+            proposal.total_votes > CONTROVERSIAL_THRESHOLD &&
+            proposal.score <= 0.1*CONTROVERSIAL_THRESHOLD &&
             proposal.score > -0.1*CONTROVERSIAL_THRESHOLD }
           .sort{ |p1, p2| p2.total_votes <=> p1.total_votes }
       else
