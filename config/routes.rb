@@ -1,7 +1,10 @@
 Dcid::Application.routes.draw do
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   resources :users
   resources :password_resets
-  resources :sessions,  only: [:new, :create, :destroy]
   resources :proposals do
     member do
       post :vote_for, :vote_against
@@ -22,6 +25,9 @@ Dcid::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  match '/auth/:provider/callback', to: 'sessions#oauth',  via: 'get'
+  match '/auth/failure', to: redirect('/'),                via: 'get'
 
   unless Rails.application.config.consider_all_requests_local
     match '*not_found', to: 'errors#error_404', via: 'get'

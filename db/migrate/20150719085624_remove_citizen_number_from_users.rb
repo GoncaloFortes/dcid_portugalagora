@@ -1,5 +1,6 @@
 class RemoveCitizenNumberFromUsers < ActiveRecord::Migration
   def up
+    remove_index :users, :citizen_number
     remove_column :users, :citizen_number
   end
 

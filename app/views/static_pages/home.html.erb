@@ -1,6 +1,6 @@
 <% provide(:title, '') %>
 
-<% if signed_in? %>
+<% if user_signed_in? %>
 
 
 <div class="row">
@@ -33,7 +33,7 @@
 <div class="row">
   <div class="col-md-12 text-center">
       <%= image_tag("logo-portugal-agora.png", alt: "Portugal Agora logo", class: "logo") %>
-      <%= link_to image_tag("logo-dcid.png", alt: "DCID logo", class: "logo"), signup_path %>
+      <%= link_to image_tag("logo-dcid.png", alt: "DCID logo", class: "logo"), new_user_session_path %>
   </div>
 </div>
 
@@ -61,7 +61,7 @@
 
 <div class="row">
   <div class="col-md-12 text-center">
-    <%= link_to 'Participe!', signup_path, class: "btn btn-default btn-success btn-lg" %>
+    <%= link_to 'Participe!', new_user_session_path, class: "btn btn-default btn-success btn-lg" %>
   </div>
 </div>
 

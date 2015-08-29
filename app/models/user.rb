@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, password_length: 6..128
   has_many :proposals, dependent: :destroy
   acts_as_voter  # thumbs_up gem
 
@@ -13,6 +15,17 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
 
   default_scope -> { order('created_at DESC') }
+
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+  end
 
 
   def first_name
@@ -59,7 +72,6 @@ class User < ActiveRecord::Base
 
 
   private
-
     def password_required?
       new_record? || password.present?
     end
