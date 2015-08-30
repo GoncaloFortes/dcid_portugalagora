@@ -208,5 +208,15 @@ p {
  * =========== */
 
 .new-proposal {
-  margin-right: 15px; 
+  margin-right: 15px;
+}
+
+/* ========
+ * Extension for the alerts
+ * ======== */
+.alert-notice {
+  @extend .alert-success;
+}
+.alert-alert {
+  @extend .alert-danger;
 }
