@@ -18,6 +18,14 @@ class Proposal < ActiveRecord::Base
     ["Portugal Atrativo", "Portugal do Conhecimento", "Portugal Empreendedor"]
   end
 
+  def self.normalize_tag(tag)
+    # Make lowercase
+    tag_downcased = tag.downcase
+
+    # Replace any non-word ([^\w]) characters with a hyphen
+    tag_downcased.gsub(/[^\w]+/i,'-')
+  end
+
   def score
     self.plusminus
   end
@@ -35,11 +43,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def normalize_tags
-    # Make lowercase
-    self.tag_list.map!(&:downcase)
-
-    # Replace any non-word ([^\w]) characters with a hyphen
-    self.tag_list.map! {|tag| tag.gsub(/[^\w]+/i,'-')}
+    self.tag_list.map! { |tag| self.class.normalize_tag(tag) }
   end
 
   def summary(maxChars)
