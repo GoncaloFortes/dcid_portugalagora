@@ -25,8 +25,9 @@ gem 'thumbs_up', '~> 0.6.7' # voting
 gem 'acts-as-taggable-on', '~> 3.1.0' # tagging
 gem 'figaro', '~> 1.0.0' # passwords & configs
 gem 'impressionist'
-gem 'omniauth-facebook'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

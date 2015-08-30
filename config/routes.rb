@@ -1,8 +1,13 @@
 Dcid::Application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  devise_scope :user do
+    get 'auth/facebook/callback', :to => 'users/omniauth_callbacks#facebook'
+  end
+
   resources :users
   resources :password_resets
   resources :proposals do

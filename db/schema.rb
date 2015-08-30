@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828230842) do
+ActiveRecord::Schema.define(version: 20150829002844) do
 
   create_table "impressions", force: true do |t|
     t.string   "impressionable_type"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20150828230842) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
