@@ -4,24 +4,24 @@
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
-      <%= f.label :title, "Designação" %>
+      <%= f.label :title %>
       <%= f.text_field :title, maxlength: 60, placeholder: "Uma frase a que seja possível responder 'Sim' ou 'Não'", class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :problem, "Descrição da implementação" %>
+      <%= f.label :problem %>
       <%= f.text_area :problem, rows: 5, maxlength: 500, placeholder: "(max. 500 caract.)", class: 'form-control' %>
     </div>
 
     <div class="form-group">
       <div id="solution_field"></div>
-      <%= f.label :solution, "Impacto esperado" %>
+      <%= f.label :solution %>
       <%= f.text_area :solution, rows: 8, maxlength: 1000, placeholder: "(max. 1000 caract.)", class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :tag_list, "Temas" %>
-      <%= f.text_field :tag_list, maxlength: 255, placeholder: "separados, por, vírgulas", class: 'form-control' %>
+      <%= f.label :tag_list, "Tema" %>
+      <%= f.select :tag_list, @proposal.class.possible_tags.collect { |t| [t,t]}, {include_blank: true}, {class: 'form-control'} %>
     </div>
 
     <br>

@@ -14,6 +14,10 @@ class Proposal < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC') }
 
+  def self.possible_tags
+    ["Portugal Atrativo", "Portugal do Conhecimento", "Portugal Empreendedor"]
+  end
+
   def score
     self.plusminus
   end
