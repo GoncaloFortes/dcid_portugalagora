@@ -15,9 +15,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
+  def failure
+    debugger
+    super
+  end
 
   # protected
 
@@ -27,8 +28,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   def facebook
-    debugger
-    
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
