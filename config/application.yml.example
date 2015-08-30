@@ -18,3 +18,5 @@ ADMIN_ID:         #"12345678" your admin's citizen number
 MAILER_USER:      #"YourSendgridUsername"
 MAILER_PASS:      #"your_sendgrid_password"
 MAILER_ADDRESS:   #"smtp.sendgrid.net"
+
+FB_APP_ID: #"123245678" the facebook app id (for login and comments)
