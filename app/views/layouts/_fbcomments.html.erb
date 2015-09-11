@@ -1,26 +1,4 @@
 <script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    debugger;
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      //TODO add login for the login: call server
-
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      //TODO handle error
-    }
-  }
-
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '875513162544891',
@@ -28,24 +6,6 @@
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.2' // use version 2.2
   });
-
-  // Now that we've initialized the JavaScript SDK, we call
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
-  };
 
   // Load the SDK asynchronously
   (function(d, s, id) {
@@ -55,39 +15,4 @@
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-</script>
-<script type="text/javascript">
-  function loginOnFacebook() {
-    FB.login(function(response) {
-      debugger;
-      if(response.authResponse) {
-        // $.ajax({
-        //   type: 'POST',
-        //   url: '/users/auth/facebook/callback',
-        //   dataType: 'json',
-        //   data: {signed_request: response.authResponse.signedRequest},
-        //   success: function(data, textStatus, jqXHR) {
-        //     debugger;
-        //   },
-        //   error: function(jqXHR, textStatus, errorThrown) {
-        //     debugger;
-        // }});
-        if (response.status === 'connected') {
-          // Logged into your app and Facebook.
-          //TODO add login for the login: call server
-          getInformation();
-        } else if (response.status === 'not_authorized') {
-          // The person is logged into Facebook, but not your app.
-          //TODO handle error
-          debugger;
-        }
-      }
-    });
-  }
-
-  function getInformation() {
-    FB.api('/me', function(response) {
-      debugger;
-    });
-  }
 </script>

@@ -15,10 +15,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   # GET|POST /users/auth/twitter/callback
-  def failure
-    debugger
-    super
-  end
+  # def failure
+  #   debugger
+  #   super
+  # end
 
   # protected
 

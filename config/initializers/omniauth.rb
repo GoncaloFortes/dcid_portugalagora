@@ -1,6 +1,10 @@
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, '523426381086906', '136c56e96a0235d688f0f6c6fef20968'
-  # provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET']
+  provider :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'],
+    scope: 'email,public_profile', display: 'popup',
+    client_options: {
+      site: 'https://graph.facebook.com/v2.2',
+      authorize_url: "https://www.facebook.com/v2.2/dialog/oauth"
+    }
 end
