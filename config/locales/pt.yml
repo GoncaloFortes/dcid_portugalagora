@@ -39,9 +39,9 @@ pt:
         name: "Nome"
         password: "Password"
       proposal:
-        title: "Titulo"
-        problem: "Problema"
-        solution: "Solução"
+        title: "Designação"
+        problem: "Descrição da implementação"
+        solution: "Impacto esperado"
     errors:
       models:
         user:
@@ -61,14 +61,14 @@ pt:
         proposal:
           attributes:
             title:
-              blank: "tem de estar preenchido"
-              too_long: "é demasiado longo (máximo %{count} caracteres)"
-            problem:
-              blank: "tem de estar preenchido"
-              too_long: "é demasiado longo (máximo %{count} caracteres)"
-            solution:
               blank: "tem de estar preenchida"
               too_long: "é demasiado longa (máximo %{count} caracteres)"
+            problem:
+              blank: "tem de estar preenchida"
+              too_long: "é demasiado longa (máximo %{count} caracteres)"
+            solution:
+              blank: "tem de estar preenchido"
+              too_long: "é demasiado longo (máximo %{count} caracteres)"
         vote:
           attributes:
             voteable_id:
