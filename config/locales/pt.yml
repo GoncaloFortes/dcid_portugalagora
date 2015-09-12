@@ -25,6 +25,8 @@ pt:
       title: "Entrar"
       password: "Palavra-chave"
       submit: "Entrar"
+  errors:
+    email_already_registered: "o email já se encontra registado"
   devise:
     links:
       login: "Entrar"

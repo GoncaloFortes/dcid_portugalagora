@@ -215,3 +215,35 @@ p {
 .alert-alert {
   @extend .alert-danger;
 }
+
+/* ====
+ * Social buttons (extracted from )
+ */
+ .social-box {
+   padding-top: 20px;
+ }
+ $bs-height-base: ($line-height-computed + $padding-base-vertical * 2);
+.btn-social {
+  position: relative;
+  padding-left: ($bs-height-base + $padding-base-horizontal);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+    > :first-child {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: $bs-height-base;
+      line-height: ($bs-height-base + 2);
+      font-size: 1.6em;
+      text-align: center;
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+@mixin btn-social($color-bg, $color: #fff) {
+  background-color: $color-bg;
+  @include button-variant($color, $color-bg, rgba(0,0,0,.2));
+}
+.btn-facebook      { @include btn-social(#3b5998); }
