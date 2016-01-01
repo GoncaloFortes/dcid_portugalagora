@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
   end
 
+  protected
+  def after_sign_in_path_for(resource)
+    proposals_url
+  end
 
   private
   def render_error(status, exception)
