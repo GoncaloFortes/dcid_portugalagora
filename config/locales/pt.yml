@@ -20,6 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt:
+  header:
+    proposals: "Propostas"
+    dimensions: "Dimensões"
+    citizens: "Cidadãos"
+    profile: "Perfil"
+    settings: "Definições"
+    quit: "Sair"
+    portugal_atrativo: "Portugal Atrativo"
+    portugal_do_conhecimento: "Portugal do Conhecimento"
+    portugal_empreendedor: "Portugal Empreendedor"
+    how_works: "Como funciona?"
   login:
     form:
       title: "Entrar"
