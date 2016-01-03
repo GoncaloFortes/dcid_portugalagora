@@ -1,5 +1,12 @@
 <% provide(:title, @proposal.title) %>
 
+<% content_for :og_meta_tags do %>
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="<%= @proposal.title %>" />
+  <meta property="og:description" content="<%= @proposal.problem %>" />
+<% end %>
+
 <div class="row">
   <div class="col-md-12">
     <h2><%= @proposal.title %></h2>
