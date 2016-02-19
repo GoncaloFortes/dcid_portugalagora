@@ -46,6 +46,15 @@ pt:
       didnt_receive_confirmation: "Não recebeu as instruções de confirmação?"
       didnt_receive_unlock: "Não recebeu as instruções de desbloqueio de conta?"
       signin_with_provider: "Entrar com %{provider}"
+    passwords:
+      new:
+        title: "Recuperar palavra-chave"
+        submit_button: "Pedir nova palavra-chave"
+      edit:
+        title: "Nova palavra-chave"
+        new_password: "Nova palavra-chave"
+        confirm: "Confirme a nova palavra-chave"
+        submit: "Mudar a minha palavra-chave"
   activerecord:
     attributes:
       user:
