@@ -9,7 +9,6 @@ Dcid::Application.routes.draw do
   end
 
   resources :users
-  resources :password_resets
   resources :proposals do
     member do
       post :vote_for, :vote_against
