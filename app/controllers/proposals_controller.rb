@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
   before_action :admin_or_author_user,  only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :show, :vote_for, :vote_against]
+  before_action :authenticate_user!, only: [:new, :create, :vote_for, :vote_against]
 
   impressionist :unique => [:session_hash], :actions => [:show]
 

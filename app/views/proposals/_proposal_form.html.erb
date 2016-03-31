@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :tag_list, "Tema" %>
+      <%= f.label :tag_list, "Dimensão" %>
       <%= f.select :tag_list, @proposal.class.possible_tags.collect { |t| [t, Proposal.normalize_tag(t)]}, {include_blank: true}, {class: 'form-control'} %>
     </div>
 
