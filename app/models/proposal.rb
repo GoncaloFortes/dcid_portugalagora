@@ -7,7 +7,7 @@ class Proposal < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 60 }
-  validates :problem, presence: true, length: { maximum: 400 }
+  validates :problem, presence: true, length: { maximum: 700 }
   validates :solution, presence: true, length: { maximum: 700 }
 
   before_save :normalize_tags
